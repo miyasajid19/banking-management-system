@@ -1,0 +1,21 @@
+create database bankingsystem
+
+CREATE TABLE users (
+    uid VARCHAR(255) NOT NULL,
+    name VARCHAR(255),
+    age INT,
+    gender VARCHAR(10),
+    passs VARCHAR(255),
+    email VARCHAR(255),
+    contact VARCHAR(20),
+    PRIMARY KEY (uid)
+);
+
+
+CREATE TABLE account (
+    casid VARCHAR(255) NOT NULL,
+    amount DECIMAL(10, 2),
+    passs VARCHAR(255),
+    interest DECIMAL(5, 2),
+    PRIMARY KEY (casid)
+);

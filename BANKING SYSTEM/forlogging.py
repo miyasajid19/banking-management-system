@@ -6,12 +6,62 @@ import cv2
 import random
 
 def open_image():
-    messagebox.showerror("info","will be completed soon ")
+    cap = cv2.VideoCapture(0)
+
+    # Create a QR code detector
+    detector = cv2.QRCodeDetector()
+
+    while True:
+        _, frame = cap.read()
+
+        # Detect QR codes
+        data, bbox, _ = detector.detectAndDecode(frame)
+
+        # Display the frame
+        cv2.imshow('QR Code Scanner', frame)
+
+        # Check if a QR code is detected
+        if bbox is not None:
+            # Print the data contained in the QR code
+            print('Data:', data)
+            if data !='':
+                break
+
+        # Exit loop if 'q' is pressed
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the capture
+    cap.release()
+    cv2.destroyAllWindows()
+    id,key=data.split("-")
+    mycursor = connection.cursor()
+    sql = f"SELECT * FROM `users` WHERE uid='{id}' and passs='{key}'"
+    print(sql)
+    mycursor.execute(sql)
+    data=mycursor.fetchone()
+    
+    connection.commit()
+    mycursor=connection.cursor()
+    sql2=f"SELECT * FROM `account` WHERE casid='{id}' and passs='{key}'"
+    
+    mycursor.execute(sql2)
+    print(sql2)
+    data2=mycursor.fetchone()
+    connection.commit()
+    mycursor=connection.cursor()
+
+    if(data is None):
+        print("no data is found")
+        messagebox.showerror("error","no such account exists")
+    else:
+        print("data is found")
+        showdetails(data,data2[1])
 def showdetails(data,data2):
     print("i am callled")
     print(data,data2)
     root1=Toplevel(root)
-    root1.iconbitmap("E:\\vscode\\python\\PYTHON FILES\\TKINTER PROJECTS\\BANKING SYSTEM\\login_icon_176905.ico")
+    root1.iconbitmap("login_icon_176905.ico")
     Label(root1,text="Welcome to SMPK bank",fg="red",bg="light blue",font="stencil 25 bold").grid(row=0,column=0,columnspan=2,sticky=N)
     Label(root1,text="This is the portfolio of the banking system",fg="grey",font="calbri 12 bold").grid(row=1,column=0,columnspan=2,sticky=N)
     Label(root1,text="cas id : ",font="ariel 10 italic").grid(row=2,column=0,padx=10,pady=10)
@@ -155,7 +205,7 @@ Label(root, text="Welcome to SMPK bank", fg="red", bg="light blue", font="stenci
 Label(root, text="This is the portfolio of the banking system", fg="grey", font="calbri 12 bold").grid(row=1,columnspan=2, sticky=N,padx=10,pady=10)
 try:
 # Load image using PIL and display it using a label
-    img=Image.open(r"E:\vscode\python\\PYTHON FILES\TKINTER PROJECTS\BANKING SYSTEM\baas-banking-as-a-service-.png")
+    img=Image.open(r"baas-banking-as-a-service-.png")
     img = img.resize((250, 250))
     img = ImageTk.PhotoImage(img)
     label = Label(root, image=img)

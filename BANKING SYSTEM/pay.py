@@ -41,11 +41,11 @@ def give():
         
 root=Tk()
 root.title("banking system")
-root.iconbitmap("E:\\vscode\\python\\PYTHON FILES\\TKINTER PROJECTS\\BANKING SYSTEM\\Bank_icon-icons.com_74914.ico")
+root.iconbitmap("Bank_icon-icons.com_74914.ico")
 Label(root,text="Welcome to SMPK bank   ",fg="red",bg="light blue",font="stencil 25 bold").grid(row=0,column=0,columnspan=2,sticky=N,padx=10,pady=10)
 Label(root,text="This is the portfolio of the deposit section of banking system",fg="grey",font="calbri 12 bold").grid(row=1,column=0,columnspan=2,sticky=N,padx=10,pady=10)
 try:
-    img=Image.open("E:\\vscode\python\\PYTHON FILES\\TKINTER PROJECTS\\BANKING SYSTEM\\baas-banking-as-a-service-.png")
+    img=Image.open("baas-banking-as-a-service-.png")
     img=img.resize((350,300))
     img=ImageTk.PhotoImage(img)
     Label(root,image=img).grid(row=2,column=0,columnspan=2,sticky=N,padx=10,pady=10)

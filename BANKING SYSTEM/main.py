@@ -11,11 +11,11 @@ def payment():
  
 root=Tk()
 root.title("banking system")
-root.iconbitmap("E:\\vscode\python\PYTHON FILES\TKINTER PROJECTS\BANKING SYSTEM\login_icon_176905.ico")
+root.iconbitmap("login_icon_176905.ico")
 Label(root,text="Welcome to SMPK bank",fg="red",bg="light blue",font="stencil 25 bold").grid(row=0,sticky=N)
 Label(root,text="This is the portfolio of the banking system",fg="grey",font="calbri 12 bold").grid(row=1,sticky=N)
 try:
-    img=Image.open("E:\\vscode\python\\PYTHON FILES\\TKINTER PROJECTS\\BANKING SYSTEM\\baas-banking-as-a-service-.png")
+    img=Image.open("baas-banking-as-a-service-.png")
     img=img.resize((250,200))
     img=ImageTk.PhotoImage(img)
     Label(root,image=img).grid(row=2,sticky=N)

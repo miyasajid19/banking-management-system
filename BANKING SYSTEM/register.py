@@ -99,7 +99,7 @@ def validate():
                 actualopt= random.randrange(100000,999999) 
                 try:
                     # Use the application-specific password generated from your Google Account
-                    server.login('your mail', 'your password')
+                    server.login('021neb432@sxc.edu.np', 'c=299792458m/s')
                 except Exception as e:
                     print(e)
                 subjecttext='validation of email '
@@ -117,7 +117,7 @@ def validate():
                 message = f"Subject: {subjecttext}\n\n{body}"
 
                 try:
-                    server.sendmail('your mail',Email, message)
+                    server.sendmail('021neb432@sxc.edu.np',Email, message)
                     messagebox.showinfo("info","Successfully mail was sent")
                     foot=Toplevel(root)
                     Label(foot,text="enter otp here").grid(row=0,column=0,padx=10,pady=10)
@@ -135,7 +135,7 @@ def validate():
 
 root = Tk()
 root.title("Registration Window")
-root.iconbitmap(r"E:\vscode\python\PYTHON FILES\TKINTER PROJECTS\BANKING SYSTEM\Bank_icon-icons.com_74914.ico")
+root.iconbitmap(r"Bank_icon-icons.com_74914.ico")
 
 Label(root, text="Enter valid details", font="stencil 24 bold", fg="grey", bg="light blue").grid(row=0, sticky=N,pady=10,columnspan=2)
 Label(root,text="Name : ",font="calibri 17 italic").grid(row=1,column=0)
